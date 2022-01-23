@@ -14,6 +14,13 @@ function App() {
     setSearchText(searchText);
   }
 
+  function fetchData(data) {
+    console.log(data.results);
+    data.results.map(result => {
+      return <Recipe name={result.name} />
+    });
+  }
+
   const options = {
     method: 'GET',
     url: 'https://tasty.p.rapidapi.com/recipes/list',
@@ -24,18 +31,16 @@ function App() {
     }
   };
 
-  function fetchData() {
-    return new Promise((resolve, reject) => {
-      axios.request(options).then(function (response) {
-        resolve(response.data);
-      }).catch(function (error) {
-        reject(error);
-      });
+  function httpRequest() {
+    axios.request(options).then(function (response) {
+      fetchData(response.data);
+    }).catch(function (error) {
+      console.error(error);
     });
   }
 
-  const recipe = fetchData();
-  console.log('recipe', recipe);
+
+
 
 
   return (
@@ -49,10 +54,7 @@ function App() {
         <input type="submit"></input>
       </form>
 
-      {/* data.results.map(recipe => {
-        return <Recipe name={recipe.name}/>
-      }); */}
-
+      {httpRequest()}
 
     </div>
   );
