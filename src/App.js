@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Recipe from './components/recipe';
 
 function App() {
 
   const [searchText, setSearchText] = useState('');
-  const [array, setArray] = useState([]);
+  //const [array, setArray] = useState([]);
 
   function handleChange(event) {
     const searchText = event.target.value;
@@ -16,9 +16,10 @@ function App() {
 
   function fetchData(data) {
     console.log(data.results);
-    data.results.map(result => {
-      return <Recipe name={result.name} />
+    const newArray = data.results.map(result => {
+      return { name: result.name, thumbnail: result.thumbnail_url }
     });
+    console.log(newArray);
   }
 
   const options = {
@@ -31,13 +32,17 @@ function App() {
     }
   };
 
-  function httpRequest() {
+
+  useEffect(() => {
     axios.request(options).then(function (response) {
       fetchData(response.data);
     }).catch(function (error) {
       console.error(error);
     });
-  }
+  }, [])
+
+
+
 
 
 
@@ -53,8 +58,6 @@ function App() {
 
         <input type="submit"></input>
       </form>
-
-      {httpRequest()}
 
     </div>
   );

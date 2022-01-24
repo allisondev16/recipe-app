@@ -1,3 +1,16 @@
+# What i Learned
+
+- use useEffect with an empty array as dependency to execute a method or function only once
+```JS
+useEffect(() => {
+    axios.request(options).then(function (response) {
+      fetchData(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+}, [])
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
