@@ -7,43 +7,48 @@ import Recipe from './components/recipe';
 function App() {
 
   const [searchText, setSearchText] = useState('');
-  //const [array, setArray] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
   function handleChange(event) {
     const searchText = event.target.value;
     setSearchText(searchText);
   }
 
+
   function fetchData(data) {
     console.log(data.results);
-    const newArray = data.results.map(result => {
+    const recipesArray = data.results.map(result => {
       return { name: result.name, thumbnail: result.thumbnail_url }
     });
-    console.log(newArray);
+    setRecipes(recipesArray);
   }
 
-  const options = {
-    method: 'GET',
-    url: 'https://tasty.p.rapidapi.com/recipes/list',
-    params: { from: '0', size: '20', tags: 'under_30_minutes' },
-    headers: {
-      'x-rapidapi-host': 'tasty.p.rapidapi.com',
-      'x-rapidapi-key': '639b5a8537msh53a9d6eb2b85039p180844jsn3986e4cf168e'
-    }
-  };
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const options = {
+      method: 'GET',
+      url: 'https://tasty.p.rapidapi.com/recipes/list',
+      params: { from: '0', size: '5', q: searchText },
+      headers: {
+        'x-rapidapi-host': 'tasty.p.rapidapi.com',
+        'x-rapidapi-key': '639b5a8537msh53a9d6eb2b85039p180844jsn3986e4cf168e'
+      }
+    };
+
+    axios.request(options).then(response => {
+      fetchData(response.data);
+    }).catch(error => {
+      console.error(error);
+    });
+  }
+
+
 
 
   useEffect(() => {
-    axios.request(options).then(function (response) {
-      fetchData(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
+
   }, [])
-
-
-
-
 
 
 
@@ -56,9 +61,10 @@ function App() {
       <form>
         <label>Find a Recipe <input type="text" onChange={handleChange}></input></label>
 
-        <input type="submit"></input>
+        <input type="submit" onClick={handleSubmit}></input>
       </form>
 
+      {recipes.map((recipe, index) => <Recipe key={index} name={recipe.name} image={recipe.thumbnail} />)}
     </div>
   );
 }
