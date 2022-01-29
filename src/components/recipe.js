@@ -1,12 +1,11 @@
 
 
-function Recipe(props) {
+function Recipe() {
 
 
     return (
         <div>
-            <h2>{props.name}</h2>
-            <img src={props.image} width="500px" />
+            <h2>Name</h2>
         </div>
     );
 }

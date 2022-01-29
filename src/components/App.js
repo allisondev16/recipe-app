@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Recipe from './components/recipe';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Recipe from './Recipe';
+import Header from './Header';
 
 function App() {
 
@@ -64,9 +63,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<header className="navbar">
-          <h1>Tasty</h1>
-        </header>}>
+        <Route path="/" element={<Header />}>
           <Route index element={
             <div>
               <form>
@@ -78,7 +75,7 @@ function App() {
               {recipes.map((recipe, index) => <Recipe key={index} name={recipe.name} image={recipe.image} />)}
             </div>
           } />
-          <Route path="recipe" element={<h1>Hello</h1>} />
+          <Route path="recipe" element={<Recipe />} />
         </Route>
       </Routes>
     </Router>
