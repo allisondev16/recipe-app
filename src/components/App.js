@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Recipe from './Recipe';
 import Header from './Header';
 
@@ -39,7 +39,7 @@ function App() {
       },
       headers: {
         'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-        'x-rapidapi-key': '639somethinge'
+        'x-rapidapi-key': process.env.REACT_APP_API_KEY
       }
     };
 
@@ -69,10 +69,10 @@ function App() {
               <form>
                 <label>Find a Recipe <input type="text" onChange={handleChange}></input></label>
 
-                <input type="submit" onClick={handleSubmit}></input>
+                <input type="submit" onClick={handleSubmit} value="Search"></input>
               </form>
 
-              {recipes.map((recipe, index) => <Recipe key={index} name={recipe.name} image={recipe.image} />)}
+              {recipes.map((recipe, index) => <Link to="recipe"><Recipe key={index} name={recipe.name} image={recipe.image} /></Link>)}
             </div>
           } />
           <Route path="recipe" element={<Recipe />} />

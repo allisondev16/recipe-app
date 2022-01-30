@@ -3,4 +3,32 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    font-family: 'Comfortaa', cursive;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: black;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+img {
+    width: 400px;
+}
+
+.recipe__container {
+    margin-bottom: 50px;
+}
+
+.recipe__name {
+    margin-top: 20px;
 }
