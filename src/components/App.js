@@ -66,7 +66,7 @@ function App() {
                 <input type="submit" onClick={handleSubmit} value="Search"></input>
               </form>
 
-              {recipes.map((recipe, index) => <Link to="recipe" state={recipe.id} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>)}
+              {recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>)}
             </div>
           } />
           <Route path="recipe" element={<RecipeDetails />} />

@@ -13,6 +13,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+h3 {
+    color: black;
+}
+
 a {
     text-decoration: none;
 }
@@ -25,10 +29,15 @@ img {
     width: 400px;
 }
 
-.recipe__container {
+.recipeItem {
     margin-bottom: 50px;
 }
 
-.recipe__name {
+.recipeItem h3 {
     margin-top: 20px;
+}
+
+.recipeDetails h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
