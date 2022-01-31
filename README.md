@@ -11,7 +11,7 @@ useEffect(() => {
 }, [])
 ```
 
-- [How to Pass Props Through React Router's Link Component](https://ui.dev/react-router-pass-props-to-link/#:~:text=To%20do%20this%20with%20React,Route%20that%20is%20being%20rendered.&text=To%20do%20this%20(and%20to,the%20user%20is%20coming%20from%20.)
+- [How to Pass Props Through React Router's Link Component](https://ui.dev/react-router-pass-props-to-link/)
 ```JSX
 {recipes.map((recipe, index) => <Link to="recipe" state={recipe.id} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>)}
 ```
