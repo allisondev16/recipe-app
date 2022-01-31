@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Recipe from './Recipe';
 import Header from './Header';
+import RecipeDetails from './RecipeDetails';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     console.log(data.results);
     const baseURI = data.baseUri;
     const recipesArray = data.results.map(result => {
-      return { name: result.title, image: baseURI + result.image }
+      return { id: result.id, name: result.title, image: baseURI + result.image }
     });
     setRecipes(recipesArray);
   }
@@ -53,13 +54,6 @@ function App() {
 
 
 
-  useEffect(() => {
-
-  }, [])
-
-
-
-
   return (
     <Router>
       <Routes>
@@ -72,10 +66,10 @@ function App() {
                 <input type="submit" onClick={handleSubmit} value="Search"></input>
               </form>
 
-              {recipes.map((recipe, index) => <Link to="recipe"><Recipe key={index} name={recipe.name} image={recipe.image} /></Link>)}
+              {recipes.map((recipe, index) => <Link to="recipe" state={recipe.id} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>)}
             </div>
           } />
-          <Route path="recipe" element={<Recipe />} />
+          <Route path="recipe" element={<RecipeDetails />} />
         </Route>
       </Routes>
     </Router>
