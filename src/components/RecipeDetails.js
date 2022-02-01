@@ -1,10 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function RecipeDetails() {
     const location = useLocation();
     const recipe = location.state;
+    const [information, setInformation] = useState({ extendedIngredients: [{ original: "Preparing your ingredients...", instructions: "Cooking..." }] });
 
     useEffect(() => {
         // get data from API
@@ -18,17 +19,28 @@ function RecipeDetails() {
         };
 
         axios.request(options).then(function (response) {
-            console.log(response.data);
+            setInformation(response.data);
         }).catch(function (error) {
             console.error(error);
         });
     }, [])
 
-
+    const test = information.instructions;
+    console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
     return (
         <div className='recipeDetails'>
-            <h2>{recipe.name}</h2>
-            <img src={recipe.image} alt={recipe.name}></img>
+            <div className='recipeDetails__container'>
+                <h2>{recipe.name}</h2>
+                <img src={recipe.image} alt={recipe.name}></img>
+            </div>
+            <div className='recipeDetails__container'>
+                <h3>Ingredients:</h3>
+                {information.extendedIngredients.map((ingredient, index) => <h4 key={index}>{ingredient.original}</h4>)}
+            </div>
+            <div className='recipeDetails__container'>
+                <h3>Instructions:</h3>
+                <p>{information.instructions}</p>
+            </div>
 
         </div>
     )

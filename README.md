@@ -32,6 +32,12 @@ function RecipeDetails() {
 }
 ```
 
+- [How to .split() and keep the delimiter(s) (Using Regular Expression)](https://medium.com/@shemar.gordon32/how-to-split-and-keep-the-delimiter-s-d433fb697c65)
+```JS
+const test = information.instructions;
+console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
