@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 function RecipeDetails() {
     const location = useLocation();
     const recipe = location.state;
-    const [information, setInformation] = useState({ extendedIngredients: [{ original: "Preparing your ingredients...", instructions: "Cooking..." }] });
+    const [information, setInformation] = useState({ extendedIngredients: [{ original: "Preparing your ingredients..." }], instructions: "Cooking..." });
 
     useEffect(() => {
         // get data from API
@@ -25,8 +25,20 @@ function RecipeDetails() {
         });
     }, [])
 
-    const test = information.instructions;
-    console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
+    const instructions = information.instructions;
+
+    const instructionsArray = instructions.split(/(?=[.?!])|(?<=[.?!])/g);
+
+    for (let index = 1; index < instructionsArray.length; index++) {
+        if (instructionsArray[index][0] !== " " && instructionsArray[index][0] !== ".") {
+
+            instructionsArray[index] = `<New Paragraph>${instructionsArray[index]}`;
+        }
+    }
+    const joinInstructionsArray = instructionsArray.join("");
+    const instructionsArrayFinal = joinInstructionsArray.split("<New Paragraph>");
+    console.log(instructionsArrayFinal);
+
     return (
         <div className='recipeDetails'>
             <div className='recipeDetails__container'>
