@@ -38,6 +38,7 @@ const test = information.instructions;
 console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
 ```
 
+- I just learned that an ordered list needs padding to show the numbers.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

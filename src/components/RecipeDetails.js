@@ -6,6 +6,7 @@ function RecipeDetails() {
     const location = useLocation();
     const recipe = location.state;
     const [information, setInformation] = useState({ extendedIngredients: [{ original: "Preparing your ingredients..." }], instructions: "Cooking..." });
+    const [instructions, setInstructions] = useState(["Cooking..."]);
 
     useEffect(() => {
         // get data from API
@@ -25,19 +26,23 @@ function RecipeDetails() {
         });
     }, [])
 
-    const instructions = information.instructions;
+    useEffect(() => {
+        const instruction = information.instructions;
 
-    const instructionsArray = instructions.split(/(?=[.?!])|(?<=[.?!])/g);
+        const instructionsArray = instruction.split(/(?=[.?!])|(?<=[.?!])/g);
 
-    for (let index = 1; index < instructionsArray.length; index++) {
-        if (instructionsArray[index][0] !== " " && instructionsArray[index][0] !== ".") {
-
-            instructionsArray[index] = `<New Paragraph>${instructionsArray[index]}`;
+        for (let index = 1; index < instructionsArray.length; index++) {
+            if (instructionsArray[index][0] !== " " && instructionsArray[index][0] !== ".") {
+                instructionsArray[index] = `<New Paragraph>${instructionsArray[index]}`;
+            }
         }
-    }
-    const joinInstructionsArray = instructionsArray.join("");
-    const instructionsArrayFinal = joinInstructionsArray.split("<New Paragraph>");
-    console.log(instructionsArrayFinal);
+
+        const joinInstructionsArray = instructionsArray.join("");
+        const instructionsArrayFinal = joinInstructionsArray.split("<New Paragraph>");
+        console.log(instructionsArrayFinal);
+        setInstructions(instructionsArrayFinal);
+    }, [information])
+
 
     return (
         <div className='recipeDetails'>
@@ -47,11 +52,11 @@ function RecipeDetails() {
             </div>
             <div className='recipeDetails__container'>
                 <h3>Ingredients:</h3>
-                {information.extendedIngredients.map((ingredient, index) => <h4 key={index}>{ingredient.original}</h4>)}
+                {information.extendedIngredients.map((ingredient, index) => <p key={index}>{ingredient.original}</p>)}
             </div>
             <div className='recipeDetails__container'>
                 <h3>Instructions:</h3>
-                <p>{information.instructions}</p>
+                <ol>{instructions.map((instruction, index) => <li key={index}>{instruction}</li>)}</ol>
             </div>
 
         </div>
