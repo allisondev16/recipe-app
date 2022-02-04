@@ -32,7 +32,9 @@ function RecipeDetails() {
         const instructionsArray = instruction.split(/(?=[.?!])|(?<=[.?!])/g);
 
         for (let index = 1; index < instructionsArray.length; index++) {
-            if (instructionsArray[index][0] !== " " && instructionsArray[index][0] !== ".") {
+            if (instructionsArray[index][0] !== ")") {
+                // instructionsArray[index][1] = "<New Paragraph>";
+            } else if (instructionsArray[index][0] !== " " && instructionsArray[index][0] !== ".") {
                 instructionsArray[index] = `<New Paragraph>${instructionsArray[index]}`;
             }
         }
