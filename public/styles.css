@@ -23,6 +23,7 @@ a {
 
 form {
     margin-bottom: 40px;
+    text-align: center;
 }
 
 img {
@@ -35,6 +36,7 @@ ol {
 
 .recipeItem {
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .recipeItem h3 {
@@ -57,6 +59,18 @@ ol {
     display: block;
 }
 
-.recipeDetails__container {
+.recipeDetails div {
     margin-bottom: 40px;
+}
+
+.recipeDetails__time {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.recipeDetails__time>span {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
 }
