@@ -41,6 +41,12 @@ console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
 - [I just learned that an ordered list needs padding to show the numbers.](https://www.sitepoint.com/community/t/ol-tag-not-displaying/5325)
 
 - JavaScript String replace()
+
+- [Newline in react string (string with \n)](https://forum.freecodecamp.org/t/newline-in-react-string-solved/68484)
+```CSS
+white-space: pre-wrap;
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

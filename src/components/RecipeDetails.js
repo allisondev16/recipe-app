@@ -65,15 +65,15 @@ function RecipeDetails() {
             <div className='recipeDetails__time'>
                 <span>
                     <span>Prep Time</span>
-                    <span>{information.cookingMinutes}</span>
+                    <span>{information.preparationMinutes ? information.preparationMinutes : "--"}</span>
                 </span>
                 <span>
                     <span>Cook Time</span>
-                    <span>10</span>
+                    <span>{information.cookingMinutes ? information.cookingMinutes : "--"}</span>
                 </span>
                 <span>
                     <span>Total Time</span>
-                    <span>20</span>
+                    <span>{information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes : "--"}</span>
                 </span>
             </div>
             <div className='recipeDetails__ingredients'>
