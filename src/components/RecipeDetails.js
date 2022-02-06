@@ -57,7 +57,7 @@ function RecipeDetails() {
 
 
     return (
-        <div className='recipeDetails'>
+        <div className='recipeDetails container'>
             <div className='recipeDetails__title'>
                 <h2>{recipe.name}</h2>
                 <img src={recipe.image} alt={recipe.name}></img>
@@ -65,17 +65,22 @@ function RecipeDetails() {
             <div className='recipeDetails__time'>
                 <span>
                     <span>Prep Time</span>
-                    <span>{information.preparationMinutes ? information.preparationMinutes : "--"}</span>
+                    <span>{information.preparationMinutes ? information.preparationMinutes + " mins" : "--"}</span>
                 </span>
                 <span>
                     <span>Cook Time</span>
-                    <span>{information.cookingMinutes ? information.cookingMinutes : "--"}</span>
+                    <span>{information.cookingMinutes ? information.cookingMinutes + " mins" : "--"}</span>
                 </span>
                 <span>
                     <span>Total Time</span>
-                    <span>{information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes : "--"}</span>
+                    <span>{information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes + " mins" : "--"}</span>
+                </span>
+                <span>
+                    <span>Servings</span>
+                    <span>{information.servings}</span>
                 </span>
             </div>
+
             <div className='recipeDetails__ingredients'>
                 <h3>Ingredients:</h3>
                 {information.extendedIngredients.map((ingredient, index) => <p key={index}>{ingredient.original}</p>)}

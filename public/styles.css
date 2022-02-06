@@ -34,6 +34,12 @@ ol {
     padding-left: 16px;
 }
 
+@media (min-width: 1279px) {
+    .container {
+        max-width: 1240px;
+    }
+}
+
 .recipeItem {
     margin-bottom: 50px;
     text-align: center;
@@ -44,7 +50,6 @@ ol {
 }
 
 .recipeDetails {
-    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -73,6 +78,10 @@ ol {
     display: flex;
     flex-direction: column;
     margin-right: 30px;
+}
+
+.recipeDetails__time>span:last-child {
+    margin-right: 0;
 }
 
 #notFound {

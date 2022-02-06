@@ -49,6 +49,9 @@ white-space: pre-wrap;
 
 - [What is the difference between id and class in CSS, and when should I use them?](https://stackoverflow.com/questions/12889362/what-is-the-difference-between-id-and-class-in-css-and-when-should-i-use-them)
 > A good way to remember this is a class is a type of item and the id is the unique name of an item on the page.
+
+- [Why do empty JavaScript arrays evaluate to true in conditional structures?](https://stackoverflow.com/questions/19146176/why-do-empty-javascript-arrays-evaluate-to-true-in-conditional-structures)
+> You should be checking the .length of that array to see if it contains any elements.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
