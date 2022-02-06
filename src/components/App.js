@@ -8,21 +8,22 @@ import RecipeDetails from './RecipeDetails';
 function App() {
 
   const [searchText, setSearchText] = useState('');
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(["Welcome"]);
 
   function handleChange(event) {
     const searchText = event.target.value;
     setSearchText(searchText);
   }
 
-
   function fetchData(data) {
     console.log(data.results);
     const baseURI = data.baseUri;
+
     const recipesArray = data.results.map(result => {
       return { id: result.id, name: result.title, image: baseURI + result.image }
     });
     setRecipes(recipesArray);
+
   }
 
   function handleSubmit(event) {
@@ -66,7 +67,7 @@ function App() {
                 <input type="submit" onClick={handleSubmit} value="Search"></input>
               </form>
 
-              {recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>)}
+              {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
             </div>
           } />
           <Route path="recipe" element={<RecipeDetails />} />
