@@ -45,9 +45,9 @@ function App() {
       }
     };
 
-    axios.request(options).then(function (response) {
+    axios.request(options).then(response => {
       fetchData(response.data);
-    }).catch(function (error) {
+    }).catch(error => {
       console.error(error);
     });
   }
@@ -58,15 +58,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route path="/" element={<Header onChange={handleChange} onClick={handleSubmit} />}>
           <Route index element={
             <div>
-              <form>
-                <label>Find a Recipe <input type="text" onChange={handleChange}></input></label>
-
-                <input type="submit" onClick={handleSubmit} value="Search"></input>
-              </form>
-
               {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
             </div>
           } />
