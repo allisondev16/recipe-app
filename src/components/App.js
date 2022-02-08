@@ -26,8 +26,7 @@ function App() {
 
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit() {
 
     const options = {
       method: 'GET',
@@ -58,7 +57,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Header onChange={handleChange} onClick={handleSubmit} />}>
+        <Route path="/" element={<Header onChange={handleChange} onSubmit={handleSubmit} />}>
           <Route index element={
             <div>
               {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
