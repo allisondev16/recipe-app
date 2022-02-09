@@ -86,6 +86,10 @@ ol {
     margin-right: 0;
 }
 
+.search-field {
+    padding: 10px 66px 10px 16px;
+}
+
 #notFound {
     text-align: center;
 }

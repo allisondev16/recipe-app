@@ -1,4 +1,5 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom';
+import SearchIcon from '@mui/icons-material/Search';
 
 function Header(props) {
 
@@ -16,9 +17,9 @@ function Header(props) {
                 <nav className='container'>
                     <Link to="/"><h1>Tasty</h1></Link>
                     <form>
-                        <input type="text" onChange={props.onChange} placeholder="Find a Recipe"></input>
+                        <input className='search-field' type="text" onChange={props.onChange} placeholder="Find a Recipe"></input>
 
-                        <input type="submit" onClick={handleSubmit} value="Search"></input>
+                        <input type="submit" onClick={handleSubmit}></input><SearchIcon />
                     </form>
                 </nav>
 
