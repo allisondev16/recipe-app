@@ -86,8 +86,24 @@ ol {
     margin-right: 0;
 }
 
-.search-field {
+.search {
+    position: relative;
+}
+
+.search__input {
     padding: 10px 66px 10px 16px;
+}
+
+.search__icon {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    bottom: 0px;
+    width: 40px;
+    line-height: 0;
+    opacity: 0.5;
 }
 
 #notFound {
