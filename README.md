@@ -52,6 +52,12 @@ white-space: pre-wrap;
 
 - [Why do empty JavaScript arrays evaluate to true in conditional structures?](https://stackoverflow.com/questions/19146176/why-do-empty-javascript-arrays-evaluate-to-true-in-conditional-structures)
 > You should be checking the .length of that array to see if it contains any elements.
+
+- [Never remove CSS outlines](https://www.a11yproject.com/posts/never-remove-css-outlines/#:~:text=Using%20the%20CSS%20rule%20%3Afocus,of%20focus%20for%20keyboard%20users.)
+> Using the CSS rule :focus { outline: none; } to remove an outline on an object causes the link or control to be focusable, but removes any visible indication of focus for keyboard users.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

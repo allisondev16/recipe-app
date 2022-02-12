@@ -10,6 +10,8 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [recipes, setRecipes] = useState(["Welcome"]);
 
+  const [finalSearchText, setFinalSearchText] = useState('');
+
   function handleChange(event) {
     const searchText = event.target.value;
     setSearchText(searchText);
@@ -27,6 +29,7 @@ function App() {
   }
 
   function handleSubmit() {
+    setFinalSearchText(searchText);
 
     const options = {
       method: 'GET',
@@ -59,7 +62,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Header onChange={handleChange} onSubmit={handleSubmit} />}>
           <Route index element={
-            <div>
+            <div className='container'>
+              {finalSearchText && <h2 id='recipeResultsFor'>Recipe Results for {finalSearchText}</h2>}
               {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
             </div>
           } />

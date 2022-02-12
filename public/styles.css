@@ -9,12 +9,16 @@ h1 {
     font-family: 'Dancing Script', cursive;
     color: black;
     font-size: 48px;
-    margin-bottom: 20px;
     text-align: center;
 }
 
 h3 {
     color: black;
+}
+
+nav {
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 15%);
+    padding: 10px 0;
 }
 
 a {
@@ -25,13 +29,6 @@ img {
     width: 400px;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-}
-
 ol {
     padding-left: 16px;
 }
@@ -39,7 +36,15 @@ ol {
 @media (min-width: 1279px) {
     .container {
         max-width: 1240px;
+        margin: 0 auto;
     }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .recipeItem {
@@ -92,6 +97,12 @@ ol {
 
 .search__input {
     padding: 10px 66px 10px 16px;
+    border-color: rgb(0 0 0 / 50%);
+    border-style: solid;
+}
+
+.search__input:focus {
+    outline-color: #90E0EF;
 }
 
 .search__icon {
@@ -108,4 +119,8 @@ ol {
 
 #notFound {
     text-align: center;
+}
+
+#recipeResultsFor {
+    margin: 40px 0;
 }
