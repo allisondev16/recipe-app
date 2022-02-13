@@ -56,8 +56,16 @@ white-space: pre-wrap;
 - [Never remove CSS outlines](https://www.a11yproject.com/posts/never-remove-css-outlines/#:~:text=Using%20the%20CSS%20rule%20%3Afocus,of%20focus%20for%20keyboard%20users.)
 > Using the CSS rule :focus { outline: none; } to remove an outline on an object causes the link or control to be focusable, but removes any visible indication of focus for keyboard users.
 
-
-
+- [Set height as a ratio of width with only css](https://stackoverflow.com/questions/40062241/set-height-as-a-ratio-of-width-with-only-css)
+> CSS has a built-in property called aspect-ratio just assign it to the element after height or width has been defined.
+```CSS
+.recipeItem {
+    margin-bottom: 50px;
+    text-align: center;
+    width: calc(25% - 1.5rem);
+    aspect-ratio: 3/2;
+}
+```
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
