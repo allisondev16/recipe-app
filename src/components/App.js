@@ -67,7 +67,9 @@ function App() {
           <Route path="results" element={<div>
             <div className='container'>
               {finalSearchText && <h2 id='recipeResultsFor'>Recipe Results for {finalSearchText}</h2>}
-              {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
+              <div>
+                {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
+              </div>
             </div>
           </div>} />
           <Route path="results/recipe" element={<RecipeDetails />} />

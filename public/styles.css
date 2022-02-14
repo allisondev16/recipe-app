@@ -57,14 +57,31 @@ ol {
 
 .recipeItem {
     margin-bottom: 50px;
-    text-align: center;
     width: calc(25% - 1.5rem);
     aspect-ratio: 3/2;
     background: #fff;
 }
 
-.recipeItem h3 {
-    margin-top: 20px;
+.recipeItem__card {
+    padding: 20px;
+}
+
+.recipeItem__card h3 {
+    margin-bottom: 30px;
+}
+
+.recipeItem__card .readyInMinutes {
+    color: #616161;
+}
+
+.recipeItem__card .readyInMinutes .icon {
+    vertical-align: bottom;
+    font-size: 18px;
+}
+
+.recipeItem__card .readyInMinutes .text {
+    font-size: 14px;
+    padding-left: 3px;
 }
 
 .recipeDetails {
