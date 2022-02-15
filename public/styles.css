@@ -57,13 +57,18 @@ ol {
 
 .recipeItem {
     margin-bottom: 50px;
-    width: calc(25% - 1.5rem);
-    aspect-ratio: 3/2;
+    width: 275px;
     background: #fff;
+}
+
+.recipeItem__img {
+    width: 275px;
+    aspect-ratio: 3/2;
 }
 
 .recipeItem__card {
     padding: 20px;
+    min-height: 150px;
 }
 
 .recipeItem__card h3 {
@@ -117,6 +122,11 @@ ol {
 
 .recipeDetails__time>span:last-child {
     margin-right: 0;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .search {

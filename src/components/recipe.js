@@ -5,7 +5,9 @@ function Recipe(props) {
 
     return (
         <div className="recipeItem">
-            <img src={props.image} alt={props.name}></img>
+            <div className="recipeItem__img">
+                <img src={props.image} alt={props.name}></img>
+            </div>
             <div className="recipeItem__card">
                 <h3>{props.name}</h3>
                 <span className="readyInMinutes">
