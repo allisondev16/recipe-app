@@ -55,20 +55,26 @@ ol {
     margin: 0 auto;
 }
 
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
 .recipeItem {
-    margin-bottom: 50px;
-    width: 275px;
     background: #fff;
+    width: calc(25% - 15px);
 }
 
 .recipeItem__img {
-    width: 275px;
+    width: 100%;
     aspect-ratio: 3/2;
 }
 
 .recipeItem__card {
     padding: 20px;
-    min-height: 150px;
+
 }
 
 .recipeItem__card h3 {
@@ -122,11 +128,6 @@ ol {
 
 .recipeDetails__time>span:last-child {
     margin-right: 0;
-}
-
-.results {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .search {

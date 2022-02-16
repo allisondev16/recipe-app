@@ -4,7 +4,7 @@ function Recipe(props) {
 
 
     return (
-        <div className="recipeItem">
+        <div>
             <div className="recipeItem__img">
                 <img src={props.image} alt={props.name}></img>
             </div>

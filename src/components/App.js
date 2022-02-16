@@ -68,7 +68,7 @@ function App() {
             <div className='container'>
               {finalSearchText && <h2 id='recipeResultsFor'>Recipe Results for {finalSearchText}</h2>}
               <div className='results'>
-                {recipes.length ? recipes.map((recipe, index) => <Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /></Link>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
+                {recipes.length ? recipes.map((recipe, index) => <div className='recipeItem'><Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /></Link></div>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
               </div>
             </div>
           </div>} />
