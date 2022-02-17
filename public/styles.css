@@ -65,6 +65,7 @@ ol {
 .recipeItem {
     background: #fff;
     width: calc(25% - 15px);
+    position: relative;
 }
 
 .recipeItem__img {
@@ -83,6 +84,8 @@ ol {
 
 .recipeItem__card .readyInMinutes {
     color: #616161;
+    position: absolute;
+    bottom: 15px;
 }
 
 .recipeItem__card .readyInMinutes .icon {
@@ -108,6 +111,7 @@ ol {
 .recipeDetails img {
     margin: 0 auto;
     display: block;
+    width: 500px;
 }
 
 .recipeDetails div {
@@ -138,10 +142,11 @@ ol {
     padding: 10px 66px 10px 16px;
     border-color: rgb(0 0 0 / 50%);
     border-style: solid;
+    border-radius: 10px;
 }
 
 .search__input:focus {
-    outline-color: #90E0EF;
+    outline-color: #2666CF;
 }
 
 .search__icon {
