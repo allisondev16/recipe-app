@@ -68,6 +68,21 @@ ol {
     position: relative;
 }
 
+@media (max-width: 415px) {
+    .recipeItem {
+        width: 85%;
+    }
+
+    .results {
+        justify-content: center;
+    }
+
+    #recipeResultsFor {
+        font-size: 20px;
+        margin-left: 7.5%;
+    }
+}
+
 .recipeItem__img {
     width: 100%;
     aspect-ratio: 3/2;
