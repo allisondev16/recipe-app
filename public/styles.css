@@ -55,6 +55,16 @@ ol {
     margin: 0 auto;
 }
 
+.navbar__main .search-icon {
+    position: absolute;
+    right: 20px;
+}
+
+.navbar__main svg {
+    display: block;
+    font-size: 36px;
+}
+
 .results {
     display: flex;
     flex-wrap: wrap;
@@ -69,6 +79,11 @@ ol {
 }
 
 @media (max-width: 415px) {
+
+    .navbar__main {
+        justify-content: center;
+    }
+
     .recipeItem {
         width: 85%;
     }
