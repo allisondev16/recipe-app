@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function Header(props) {
 
-    const [ifMobile, setIfMobile] = useState(true);
+    const [isIconClicked, setIsIconClicked] = useState(false);
     const navigate = useNavigate();
 
     function handleSubmit(event) {
@@ -13,24 +13,27 @@ function Header(props) {
         navigate('results');
     }
 
+    function handleClick() {
+        setIsIconClicked(!isIconClicked);
+    }
+
     return (
         <div>
             <header>
-                <nav className='navbar'>
+                <nav className='navbar-container'>
                     <div className='navbar__main container'>
                         <Link to="/"><h1>Tasty</h1></Link>
 
-                        {
-                            /* make responsive for mobile and desktop */
-                            ifMobile ? <div>
-                                <span className='search-icon'><SearchIcon /></span>
-                            </div> :
-                                <form className='search'>
-                                    <input className='search__input' type="text" onChange={props.onChange} placeholder="Find a Recipe"></input>
+                        <span className='search-icon' onClick={handleClick}>
+                            {!isIconClicked ? <SearchIcon /> : 'X'}
+                        </span>
 
-                                    <button className='search__icon' onClick={handleSubmit}><SearchIcon /></button>
-                                </form>
-                        }
+                        <form className={isIconClicked ? 'search-form' : 'display-none'}>
+                            <input className='search__input' type="text" onChange={props.onChange} placeholder="Find a Recipe"></input>
+
+                            <button className='search__icon' onClick={handleSubmit}><SearchIcon /></button>
+                        </form>
+
                     </div>
                 </nav>
 

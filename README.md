@@ -66,6 +66,12 @@ white-space: pre-wrap;
     aspect-ratio: 3/2;
 }
 ```
+
+- [How to get rid of extra space below svg in div element](https://stackoverflow.com/questions/24626908/how-to-get-rid-of-extra-space-below-svg-in-div-element)
+> You need `display: block;` on your svg.
+
+- [Responsive Navbar Tutorial](https://www.youtube.com/watch?v=At4B7A4GOPg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
