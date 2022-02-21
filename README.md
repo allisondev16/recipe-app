@@ -72,6 +72,14 @@ white-space: pre-wrap;
 
 - [Responsive Navbar Tutorial](https://www.youtube.com/watch?v=At4B7A4GOPg)
 
+- [CSS The !important Rule](https://www.w3schools.com/css/css_important.asp)
+> The `!important` rule in CSS is used to add more importance to a property/value than normal.
+```CSS
+.navbar__main .search-icon {
+    display: block !important;
+}
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

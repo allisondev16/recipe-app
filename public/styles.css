@@ -43,20 +43,31 @@ ol {
 
 @media (max-width: 415px) {
 
+    .display-none {
+        display: none;
+    }
+
     .navbar__main {
         flex-direction: column;
     }
 
     .navbar__main .search-form {
-        padding-top: 10px;
+        width: 100%;
+        padding: 20px 7.5% 0 7.5%;
+    }
+
+    .navbar__main .search__input {
+        width: 100%;
     }
 
     .navbar__main .search-icon {
         display: block !important;
+        opacity: 0.5;
     }
 
     .navbar__main .search-form .search__icon {
-        top: 10px !important;
+        top: 20px !important;
+        right: 7.5% !important;
     }
 
     .recipeItem {
@@ -71,10 +82,6 @@ ol {
         font-size: 20px;
         margin-left: 7.5%;
     }
-}
-
-.display-none {
-    display: none;
 }
 
 .navbar-container {

@@ -1,6 +1,7 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Header(props) {
 
@@ -25,10 +26,10 @@ function Header(props) {
                         <Link to="/"><h1>Tasty</h1></Link>
 
                         <span className='search-icon' onClick={handleClick}>
-                            {!isIconClicked ? <SearchIcon /> : 'X'}
+                            {!isIconClicked ? <SearchIcon /> : <CloseIcon />}
                         </span>
 
-                        <form className={isIconClicked ? 'search-form' : 'display-none'}>
+                        <form className={isIconClicked ? 'search-form' : 'search-form display-none'}>
                             <input className='search__input' type="text" onChange={props.onChange} placeholder="Find a Recipe"></input>
 
                             <button className='search__icon' onClick={handleSubmit}><SearchIcon /></button>
