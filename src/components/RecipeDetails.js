@@ -60,6 +60,7 @@ function RecipeDetails() {
         <div className='recipeDetails container'>
             <div className='recipeDetails__title'>
                 <h2>{recipe.name}</h2>
+                <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
                 <img src={recipe.image} alt={recipe.name}></img>
             </div>
             <div className='recipeDetails__time'>

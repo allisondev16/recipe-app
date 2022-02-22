@@ -80,6 +80,12 @@ white-space: pre-wrap;
 }
 ```
 
+- [Render HTML string as real HTML in a React component](https://stackoverflow.com/questions/39758136/render-html-string-as-real-html-in-a-react-component)
+>If you are dealing with HTML Entities, You need to decode them before sending them to dangerouslySetInnerHTML that's why it's called "dangerously" :)
+```JSX
+<div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
