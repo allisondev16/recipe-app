@@ -61,32 +61,35 @@ function RecipeDetails() {
             <div className='recipeDetails__title'>
                 <h2>{recipe.name}</h2>
                 <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
-                <img src={recipe.image} alt={recipe.name}></img>
+
             </div>
-            <div className='recipeDetails__time'>
-                <span>
-                    <span>Prep Time</span>
-                    <span>{information.preparationMinutes ? information.preparationMinutes + " mins" : "--"}</span>
-                </span>
-                <span>
-                    <span>Cook Time</span>
-                    <span>{information.cookingMinutes ? information.cookingMinutes + " mins" : "--"}</span>
-                </span>
-                <span>
-                    <span>Total Time</span>
-                    <span>{information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes + " mins" : "--"}</span>
-                </span>
-                <span>
-                    <span>Servings</span>
-                    <span>{information.servings}</span>
-                </span>
+            <div className='flex'>
+                <img src={recipe.image} alt={recipe.name} className='margin-left'></img>
+                <div className='recipeDetails__time margin-left'>
+                    <span>
+                        <span>Prep Time</span>
+                        <span>{information.preparationMinutes ? information.preparationMinutes + " mins" : "--"}</span>
+                    </span>
+                    <span>
+                        <span>Cook Time</span>
+                        <span>{information.cookingMinutes ? information.cookingMinutes + " mins" : "--"}</span>
+                    </span>
+                    <span>
+                        <span>Total Time</span>
+                        <span>{information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes + " mins" : "--"}</span>
+                    </span>
+                    <span>
+                        <span>Servings</span>
+                        <span>{information.servings}</span>
+                    </span>
+                </div>
             </div>
 
-            <div className='recipeDetails__ingredients'>
+            <div className='recipeDetails__ingredients margin-left'>
                 <h3>Ingredients:</h3>
                 {information.extendedIngredients.map((ingredient, index) => <p key={index}>{ingredient.original}</p>)}
             </div>
-            <div className='recipeDetails__instructions'>
+            <div className='recipeDetails__instructions margin-left'>
                 <h3>Instructions:</h3>
                 <ol>{instructions.map((instruction, index) => <li key={index}>{instruction}</li>)}</ol>
             </div>

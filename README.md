@@ -86,6 +86,16 @@ white-space: pre-wrap;
 <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
 ```
 
+- [CSS styles disappear after refresh in React app](https://stackoverflow.com/questions/43763110/css-styles-disappear-after-refresh-in-react-app)
+from:
+```HTML
+<link rel="stylesheet" href="styles.css">
+```
+to:
+```HTML
+<link rel="stylesheet" href="/styles.css">
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
