@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import AvTimerIcon from '@mui/icons-material/AvTimer';
 
 function RecipeDetails() {
     const location = useLocation();
@@ -57,39 +58,36 @@ function RecipeDetails() {
 
 
     return (
-        <div className='recipeDetails container'>
-            <div className='recipeDetails__title'>
+        <div className='recipe-details container'>
+            <div className='recipe-details__title'>
                 <h2>{recipe.name}</h2>
                 <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
 
             </div>
             <div className='flex'>
                 <img src={recipe.image} alt={recipe.name} className='margin-left'></img>
-                <div className='recipeDetails__time margin-left'>
+                <div className='recipe-details__time margin-left'>
+                    <AvTimerIcon fontSize="large" />
                     <span>
-                        <span>Prep Time</span>
-                        <span>{information.preparationMinutes ? information.preparationMinutes + " mins" : "--"}</span>
+                        <b>Prep Time:</b> {information.preparationMinutes ? information.preparationMinutes + " mins" : "--"}
                     </span>
                     <span>
-                        <span>Cook Time</span>
-                        <span>{information.cookingMinutes ? information.cookingMinutes + " mins" : "--"}</span>
+                        <b>Cook Time:</b> {information.cookingMinutes ? information.cookingMinutes + " mins" : "--"}
                     </span>
                     <span>
-                        <span>Total Time</span>
-                        <span>{information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes + " mins" : "--"}</span>
+                        <b>Total Time:</b> {information.preparationMinutes + information.cookingMinutes ? information.preparationMinutes + information.cookingMinutes + " mins" : "--"}
                     </span>
                     <span>
-                        <span>Servings</span>
-                        <span>{information.servings}</span>
+                        <b>Servings:</b> {information.servings}
                     </span>
                 </div>
             </div>
 
-            <div className='recipeDetails__ingredients margin-left'>
+            <div className='recipe-details__ingredients margin-left'>
                 <h3>Ingredients:</h3>
                 {information.extendedIngredients.map((ingredient, index) => <p key={index}>{ingredient.original}</p>)}
             </div>
-            <div className='recipeDetails__instructions margin-left'>
+            <div className='recipe-details__instructions margin-left'>
                 <h3>Instructions:</h3>
                 <ol>{instructions.map((instruction, index) => <li key={index}>{instruction}</li>)}</ol>
             </div>
