@@ -9,6 +9,7 @@ function App() {
 
   const [searchText, setSearchText] = useState('');
   const [recipes, setRecipes] = useState(["Recipe"]);
+  const [breakfastRecipes, setBreakfastRecipes] = useState();
 
   const [finalSearchText, setFinalSearchText] = useState('');
 
@@ -25,7 +26,6 @@ function App() {
       return { id: result.id, name: result.title, image: baseURI + result.image, readyInMinutes: result.readyInMinutes }
     });
     setRecipes(recipesArray);
-
   }
 
   function handleSubmit() {
@@ -54,7 +54,25 @@ function App() {
     });
   }
 
+  // get random recipes for the home page
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random',
+      params: { tags: 'breakfast', number: '4' },
+      headers: {
+        'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+        'x-rapidapi-key': process.env.REACT_APP_API_KEY
+      }
+    };
 
+    axios.request(options).then(response => {
+      console.log('breakfast', response.data);
+      setBreakfastRecipes(response.data);
+    }).catch(error => {
+      console.error(error);
+    });
+  }, [])
 
 
   return (
@@ -62,7 +80,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Header onChange={handleChange} onSubmit={handleSubmit} />}>
           <Route index element={
-            <h2 id='recipeResultsFor' className='container'>Welcome!</h2>
+            <div className='container'>
+              <h2 id='recipeResultsFor'>Welcome!</h2>
+              <h2>Featured</h2>
+              {/* <Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /> */}
+            </div>
           } />
           <Route path="results" element={<div>
             <div className='container'>

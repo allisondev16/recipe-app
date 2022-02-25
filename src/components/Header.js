@@ -2,6 +2,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import Footer from './Footer';
 
 function Header(props) {
 
@@ -40,7 +41,8 @@ function Header(props) {
 
             </header>
             <Outlet />
-        </div >
+            <Footer />
+        </div>
     )
 }
 

@@ -64,10 +64,16 @@ function RecipeDetails() {
                 <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
 
             </div>
-            <div className='flex'>
-                <img src={recipe.image} alt={recipe.name} className='margin-left'></img>
-                <div className='recipe-details__time margin-left'>
-                    <AvTimerIcon fontSize="large" />
+            <div className='recipe-details__img-time'>
+                <img src={recipe.image} alt={recipe.name}></img>
+                <div className='recipe-details__time'>
+                    <AvTimerIcon fontSize="large" sx={{
+                        color: '#FFB72B',
+                        backgroundColor: '#F0F9F9',
+                        position: 'absolute',
+                        right: '-2px',
+                        top: '-2px'
+                    }} />
                     <span>
                         <b>Prep Time:</b> {information.preparationMinutes ? information.preparationMinutes + " mins" : "--"}
                     </span>
@@ -83,11 +89,11 @@ function RecipeDetails() {
                 </div>
             </div>
 
-            <div className='recipe-details__ingredients margin-left'>
+            <div className='recipe-details__ingredients'>
                 <h3>Ingredients:</h3>
                 {information.extendedIngredients.map((ingredient, index) => <p key={index}>{ingredient.original}</p>)}
             </div>
-            <div className='recipe-details__instructions margin-left'>
+            <div className='recipe-details__instructions'>
                 <h3>Instructions:</h3>
                 <ol>{instructions.map((instruction, index) => <li key={index}>{instruction}</li>)}</ol>
             </div>
