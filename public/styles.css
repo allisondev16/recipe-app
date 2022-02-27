@@ -289,6 +289,10 @@ ol {
     text-align: center;
 }
 
-#recipeResultsFor {
+#recipe-results-for {
     padding: 40px 0;
+}
+
+#home-category {
+    margin-bottom: 20px;
 }

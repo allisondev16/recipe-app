@@ -8,8 +8,8 @@ import RecipeDetails from './RecipeDetails';
 function App() {
 
   const [searchText, setSearchText] = useState('');
-  const [recipes, setRecipes] = useState(["Recipe"]);
-  const [breakfastRecipes, setBreakfastRecipes] = useState();
+  const [recipes, setRecipes] = useState([]);
+  const [breakfastRecipes, setBreakfastRecipes] = useState([]);
 
   const [finalSearchText, setFinalSearchText] = useState('');
 
@@ -23,7 +23,7 @@ function App() {
     const baseURI = data.baseUri;
 
     const recipesArray = data.results.map(result => {
-      return { id: result.id, name: result.title, image: baseURI + result.image, readyInMinutes: result.readyInMinutes }
+      return { id: result.id, title: result.title, image: baseURI + result.image, readyInMinutes: result.readyInMinutes }
     });
     setRecipes(recipesArray);
   }
@@ -54,7 +54,7 @@ function App() {
     });
   }
 
-  // get random recipes for the home page
+  // get random breakfast recipes for the home page
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -68,36 +68,50 @@ function App() {
 
     axios.request(options).then(response => {
       console.log('breakfast', response.data);
-      setBreakfastRecipes(response.data);
+      setBreakfastRecipes(response.data.recipes);
     }).catch(error => {
       console.error(error);
     });
   }, [])
 
-
+  console.log(breakfastRecipes);
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Header onChange={handleChange} onSubmit={handleSubmit} />}>
           <Route index element={
             <div className='container'>
-              <h2 id='recipeResultsFor'>Welcome!</h2>
-              <h2>Featured</h2>
-              {/* <Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /> */}
+              <h2 id='recipe-results-for'>Welcome!</h2>
+              <h2 id='home-category'>Breakfast</h2>
+              <div className='results'>
+                {breakfastRecipes.map((recipe, index) =>
+                  <div className='recipeItem' key={index}>
+                    <Link to="results/recipe" state={recipe}>
+                      <Recipe name={recipe.title} image={recipe.image} readyInMinutes={recipe.readyInMinutes} />
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           } />
           <Route path="results" element={<div>
             <div className='container'>
-              {finalSearchText && <h2 id='recipeResultsFor'>Recipe Results for {finalSearchText}</h2>}
+              {finalSearchText && <h2 id='recipe-results-for'>Recipe Results for {finalSearchText}</h2>}
               <div className='results'>
-                {recipes.length ? recipes.map((recipe, index) => <div className='recipeItem'><Link to="recipe" state={recipe} key={index}><Recipe name={recipe.name} image={recipe.image} readyInMinutes={recipe.readyInMinutes} /></Link></div>) : <p id='notFound'>Sorry, this recipe is not found.</p>}
+                {recipes.length ? recipes.map((recipe, index) =>
+                  <div className='recipeItem' key={index}>
+                    <Link to="recipe" state={recipe}>
+                      <Recipe name={recipe.title} image={recipe.image} readyInMinutes={recipe.readyInMinutes} />
+                    </Link>
+                  </div>
+                ) : <p id='notFound'>Sorry, this recipe is not found.</p>}
               </div>
             </div>
           </div>} />
           <Route path="results/recipe" element={<RecipeDetails />} />
         </Route>
       </Routes>
-    </Router>
+    </Router >
   );
 }
 

@@ -60,7 +60,7 @@ function RecipeDetails() {
     return (
         <div className='recipe-details container'>
             <div className='recipe-details__title'>
-                <h2>{recipe.name}</h2>
+                <h2>{recipe.title}</h2>
                 <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
 
             </div>
