@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Recipe from './Recipe';
 import Header from './Header';
 import RecipeDetails from './RecipeDetails';
+import Category from './Category';
 
 function App() {
 
   const [searchText, setSearchText] = useState('');
   const [recipes, setRecipes] = useState([]);
-  const [breakfastRecipes, setBreakfastRecipes] = useState([]);
 
   const [finalSearchText, setFinalSearchText] = useState('');
 
@@ -54,27 +54,6 @@ function App() {
     });
   }
 
-  // get random breakfast recipes for the home page
-  useEffect(() => {
-    const options = {
-      method: 'GET',
-      url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random',
-      params: { tags: 'breakfast', number: '4' },
-      headers: {
-        'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-        'x-rapidapi-key': process.env.REACT_APP_API_KEY
-      }
-    };
-
-    axios.request(options).then(response => {
-      console.log('breakfast', response.data);
-      setBreakfastRecipes(response.data.recipes);
-    }).catch(error => {
-      console.error(error);
-    });
-  }, [])
-
-  console.log(breakfastRecipes);
   return (
     <Router>
       <Routes>
@@ -82,16 +61,14 @@ function App() {
           <Route index element={
             <div className='container'>
               <h2 id='recipe-results-for'>Welcome!</h2>
-              <h2 id='home-category'>Breakfast</h2>
-              <div className='results'>
-                {breakfastRecipes.map((recipe, index) =>
-                  <div className='recipeItem' key={index}>
-                    <Link to="results/recipe" state={recipe}>
-                      <Recipe name={recipe.title} image={recipe.image} readyInMinutes={recipe.readyInMinutes} />
-                    </Link>
-                  </div>
-                )}
-              </div>
+              <Category
+                name="Breakfast"
+                tags="breakfast"
+              />
+              <Category
+                name="Dinner"
+                tags="dinner"
+              />
             </div>
           } />
           <Route path="results" element={<div>
