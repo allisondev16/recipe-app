@@ -1,4 +1,4 @@
-# What i Learned
+# What I Learned
 
 - use useEffect with an empty array as dependency to execute a method or function only once
 ```JS
