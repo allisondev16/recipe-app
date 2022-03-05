@@ -13,6 +13,8 @@ function App() {
 
   const [finalSearchText, setFinalSearchText] = useState('');
 
+  const [categoryRecipes, setCategoryRecipes] = useState({});
+
   function handleChange(event) {
     const searchText = event.target.value;
     setSearchText(searchText);
@@ -27,6 +29,8 @@ function App() {
     });
     setRecipes(recipesArray);
   }
+
+
 
   function handleSubmit() {
     setFinalSearchText(searchText);
@@ -54,6 +58,30 @@ function App() {
     });
   }
 
+  async function fetchDataCategory(tags) {
+    const options = {
+      method: 'GET',
+      url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random',
+      params: { tags: tags, number: '4' },
+      headers: {
+        'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+        'x-rapidapi-key': process.env.REACT_APP_API_KEY
+      }
+    };
+
+    await axios.request(options).then(response => {
+      console.log(tags, response.data);
+      setCategoryRecipes({ ...{ [tags]: response.data.recipes } });
+    }).catch(error => {
+      console.error(error);
+    });
+  }
+
+  useEffect(() => {
+    fetchDataCategory("breakfast");
+    fetchDataCategory("dinner");
+  }, [])
+
   return (
     <Router>
       <Routes>
@@ -61,14 +89,14 @@ function App() {
           <Route index element={
             <div className='container'>
               <h2 id='recipe-results-for'>Welcome!</h2>
-              <Category
+              {/* <Category
                 name="Breakfast"
-                tags="breakfast"
+                data={categoryRecipes.breakfast}
               />
               <Category
                 name="Dinner"
-                tags="dinner"
-              />
+                data={categoryRecipes.dinner}
+              /> */}
             </div>
           } />
           <Route path="results" element={<div>
