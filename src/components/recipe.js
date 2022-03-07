@@ -1,4 +1,4 @@
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { AccessTime } from '@mui/icons-material';
 
 function Recipe(props) {
 
@@ -11,7 +11,7 @@ function Recipe(props) {
             <div className="recipeItem__card">
                 <h3>{props.name}</h3>
                 <span className="readyInMinutes">
-                    <AccessTimeIcon className="icon" />
+                    <AccessTime className="icon" />
                     <span className='text'>{props.readyInMinutes} mins</span>
                 </span>
             </div>
