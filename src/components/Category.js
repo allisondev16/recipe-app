@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 import Recipe from './Recipe';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function Category(props) {
