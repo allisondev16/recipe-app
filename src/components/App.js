@@ -13,7 +13,8 @@ function App() {
 
   const [finalSearchText, setFinalSearchText] = useState('');
 
-  const [categoryRecipes, setCategoryRecipes] = useState({});
+  const [firstCategoryRecipes, setFirstCategoryRecipes] = useState([]);
+  const [secondCategoryRecipes, setSecondCategoryRecipes] = useState([]);
 
   function handleChange(event) {
     const searchText = event.target.value;
@@ -58,7 +59,7 @@ function App() {
     });
   }
 
-  async function fetchDataCategory(tags) {
+  function fetchDataCategory(tags, setCategoryRecipes) {
     const options = {
       method: 'GET',
       url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random',
@@ -69,17 +70,19 @@ function App() {
       }
     };
 
-    await axios.request(options).then(response => {
+    axios.request(options).then(response => {
       console.log(tags, response.data);
-      setCategoryRecipes({ ...{ [tags]: response.data.recipes } });
+      setCategoryRecipes(response.data.recipes);
     }).catch(error => {
       console.error(error);
     });
   }
 
+  // get the recipes for each category for the home page
   useEffect(() => {
-    fetchDataCategory("breakfast");
-    fetchDataCategory("dinner");
+    // fetchDataCategory(tags, setCategoryRecipes)
+    fetchDataCategory("", setFirstCategoryRecipes);
+    fetchDataCategory("dessert", setSecondCategoryRecipes);
   }, [])
 
   return (
@@ -89,14 +92,14 @@ function App() {
           <Route index element={
             <div className='container'>
               <h2 id='recipe-results-for'>Welcome!</h2>
-              {/* <Category
-                name="Breakfast"
-                data={categoryRecipes.breakfast}
+              <Category
+                name="Featured"
+                data={firstCategoryRecipes}
               />
               <Category
-                name="Dinner"
-                data={categoryRecipes.dinner}
-              /> */}
+                name="Dessert"
+                data={secondCategoryRecipes}
+              />
             </div>
           } />
           <Route path="results" element={<div>
