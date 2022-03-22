@@ -1,3 +1,11 @@
+# About This App
+
+Deploy URL: https://recipe-app-olive.vercel.app/
+
+- A responsive Recipe app using HTML, CSS, ReactJS, third-party API, and Axios
+- Allowed users to search for a recipe
+- Implemented a page component for the details of each recipe
+
 # What I Learned
 
 - use useEffect with an empty array as dependency to execute a method or function only once
