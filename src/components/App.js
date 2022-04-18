@@ -22,7 +22,6 @@ function App() {
   }
 
   function fetchData(data) {
-    console.log(data.results);
     const baseURI = data.baseUri;
 
     const recipesArray = data.results.map(result => {
@@ -71,7 +70,6 @@ function App() {
     };
 
     axios.request(options).then(response => {
-      console.log(tags, response.data);
       setCategoryRecipes(response.data.recipes);
     }).catch(error => {
       console.error(error);
