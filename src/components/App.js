@@ -5,15 +5,18 @@ import Recipe from "./Recipe";
 import Header from "./Header";
 import RecipeDetails from "./RecipeDetails";
 import Category from "./Category";
+import HashLoader from "react-spinners/HashLoader";
 
 function App() {
   const [searchText, setSearchText] = useState("");
-  const [recipes, setRecipes] = useState([{ title: "Loading..." }]);
+  const [recipes, setRecipes] = useState([]);
 
   const [finalSearchText, setFinalSearchText] = useState("");
 
   const [firstCategoryRecipes, setFirstCategoryRecipes] = useState([]);
   const [secondCategoryRecipes, setSecondCategoryRecipes] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   function handleChange(event) {
     const searchText = event.target.value;
@@ -35,6 +38,7 @@ function App() {
   }
 
   function handleSubmit() {
+    setIsLoading(true);
     setFinalSearchText(searchText);
 
     const options = {
@@ -58,6 +62,7 @@ function App() {
       .request(options)
       .then((response) => {
         fetchData(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -121,7 +126,11 @@ function App() {
                     </h2>
                   )}
                   <div className="results">
-                    {recipes.length ? (
+                    {isLoading ? (
+                      <div id="loading">
+                        <HashLoader color="#F5A623" />
+                      </div>
+                    ) : recipes.length ? (
                       recipes.map((recipe, index) => (
                         <div className="recipeItem" key={index}>
                           <Link to="recipe" state={recipe}>
