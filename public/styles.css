@@ -34,14 +34,28 @@ ol {
   padding-left: 16px;
 }
 
-@media (min-width: 1279px) {
+@media (min-width: 1260px) {
   .container {
     max-width: 1200px;
     margin: 0 auto;
   }
 }
 
-@media (max-width: 415px) {
+@media (max-width: 1259px) {
+  .navbar-container {
+    padding: 10px 30px !important;
+  }
+
+  .container {
+    margin: 0 30px;
+  }
+
+  .recipeItem {
+    width: calc(50% - 10px) !important;
+  }
+}
+
+@media (max-width: 639px) {
   .container {
     margin: 0 16px 24px 16px;
   }
