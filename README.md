@@ -9,6 +9,7 @@ Deploy URL: https://recipe-app-olive.vercel.app/
 # What I Learned
 
 - use useEffect with an empty array as dependency to execute a method or function only once
+
 ```JS
 useEffect(() => {
     axios.request(options).then(function (response) {
@@ -20,12 +21,15 @@ useEffect(() => {
 ```
 
 - [How to Pass Props Through React Router's Link Component](https://ui.dev/react-router-pass-props-to-link/)
+
 ```JSX
 {recipes.map((recipe, index) => <Link to="recipe" state={recipe.id} key={index}><Recipe name={recipe.name} image={recipe.image} /></Link>)}
 ```
+
 ```JSX
 <Route path="recipe" element={<RecipeDetails />} />
 ```
+
 ```JSX
 function RecipeDetails() {
     const location = useLocation();
@@ -41,6 +45,7 @@ function RecipeDetails() {
 ```
 
 - [How to .split() and keep the delimiter(s) (Using Regular Expression)](https://medium.com/@shemar.gordon32/how-to-split-and-keep-the-delimiter-s-d433fb697c65)
+
 ```JS
 const test = information.instructions;
 console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
@@ -51,21 +56,26 @@ console.log(test.split(/(?=[.?!])|(?<=[.?!])/g));
 - JavaScript String replace()
 
 - [Newline in react string (string with \n)](https://forum.freecodecamp.org/t/newline-in-react-string-solved/68484)
+
 ```CSS
 white-space: pre-wrap;
 ```
 
 - [What is the difference between id and class in CSS, and when should I use them?](https://stackoverflow.com/questions/12889362/what-is-the-difference-between-id-and-class-in-css-and-when-should-i-use-them)
-> A good way to remember this is a class is a type of item and the id is the unique name of an item on the page.
+
+  > A good way to remember this is a class is a type of item and the id is the unique name of an item on the page.
 
 - [Why do empty JavaScript arrays evaluate to true in conditional structures?](https://stackoverflow.com/questions/19146176/why-do-empty-javascript-arrays-evaluate-to-true-in-conditional-structures)
-> You should be checking the .length of that array to see if it contains any elements.
+
+  > You should be checking the .length of that array to see if it contains any elements.
 
 - [Never remove CSS outlines](https://www.a11yproject.com/posts/never-remove-css-outlines/#:~:text=Using%20the%20CSS%20rule%20%3Afocus,of%20focus%20for%20keyboard%20users.)
-> Using the CSS rule :focus { outline: none; } to remove an outline on an object causes the link or control to be focusable, but removes any visible indication of focus for keyboard users.
+
+  > Using the CSS rule :focus { outline: none; } to remove an outline on an object causes the link or control to be focusable, but removes any visible indication of focus for keyboard users.
 
 - [Set height as a ratio of width with only css](https://stackoverflow.com/questions/40062241/set-height-as-a-ratio-of-width-with-only-css)
-> CSS has a built-in property called aspect-ratio just assign it to the element after height or width has been defined.
+  > CSS has a built-in property called aspect-ratio just assign it to the element after height or width has been defined.
+
 ```CSS
 .recipeItem {
     margin-bottom: 50px;
@@ -76,12 +86,14 @@ white-space: pre-wrap;
 ```
 
 - [How to get rid of extra space below svg in div element](https://stackoverflow.com/questions/24626908/how-to-get-rid-of-extra-space-below-svg-in-div-element)
-> You need `display: block;` on your svg.
+
+  > You need `display: block;` on your svg.
 
 - [Responsive Navbar Tutorial](https://www.youtube.com/watch?v=At4B7A4GOPg)
 
 - [CSS The !important Rule](https://www.w3schools.com/css/css_important.asp)
-> The `!important` rule in CSS is used to add more importance to a property/value than normal.
+  > The `!important` rule in CSS is used to add more importance to a property/value than normal.
+
 ```CSS
 .navbar__main .search-icon {
     display: block !important;
@@ -89,20 +101,28 @@ white-space: pre-wrap;
 ```
 
 - [Render HTML string as real HTML in a React component](https://stackoverflow.com/questions/39758136/render-html-string-as-real-html-in-a-react-component)
->If you are dealing with HTML Entities, You need to decode them before sending them to dangerouslySetInnerHTML that's why it's called "dangerously" :)
+  > If you are dealing with HTML Entities, You need to decode them before sending them to dangerouslySetInnerHTML that's why it's called "dangerously" :)
+
 ```JSX
 <div dangerouslySetInnerHTML={{ __html: information.summary }} className="summary" />
 ```
 
 - [CSS styles disappear after refresh in React app](https://stackoverflow.com/questions/43763110/css-styles-disappear-after-refresh-in-react-app)
-from:
+  from:
+
 ```HTML
 <link rel="stylesheet" href="styles.css">
 ```
+
 to:
+
 ```HTML
 <link rel="stylesheet" href="/styles.css">
 ```
+
+- [What is the difference between "screen" and "only screen" in media queries?](https://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries)
+
+- [Why does the order of media queries matter in CSS?](https://stackoverflow.com/questions/8790321/why-does-the-order-of-media-queries-matter-in-css)
 
 # Getting Started with Create React App
 
