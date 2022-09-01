@@ -124,6 +124,36 @@ to:
 
 - [Why does the order of media queries matter in CSS?](https://stackoverflow.com/questions/8790321/why-does-the-order-of-media-queries-matter-in-css)
 
+- [React js: Error: useLocation() may be used only in the context of a <Router> component](https://stackoverflow.com/questions/66747556/react-js-error-uselocation-may-be-used-only-in-the-context-of-a-router-com)
+
+```JS
+// So i fixed like this structure
+
+// index.js
+
+import { BrowserRouter } from 'react-router-dom'
+
+...
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+...
+```
+
+- [react-router scroll to top on every transition](https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition)
+
+```JS
+// Rather then doing it in every page you can do this in App.js
+
+import { useLocation } from "react-router-dom";
+
+const location = useLocation();
+useEffect(() => {
+  window.scrollTo(0,0);
+}, [location]);
+// Setting location in useEffect will make sure to scroll to top on every path change.
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
