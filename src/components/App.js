@@ -122,34 +122,32 @@ function App() {
         <Route
           path="results"
           element={
-            <div>
-              <div className="container">
-                {finalSearchText && (
-                  <h2 id="recipe-results-for">
-                    Recipe Results for {finalSearchText}
-                  </h2>
-                )}
-                <div className="results">
-                  {isLoading ? (
-                    <div id="loading">
-                      <HashLoader color="#F5A623" />
+            <div className="container">
+              {finalSearchText && (
+                <h2 id="recipe-results-for">
+                  Recipe Results for {finalSearchText}
+                </h2>
+              )}
+              <div className="results">
+                {isLoading ? (
+                  <div id="loading">
+                    <HashLoader color="#F5A623" />
+                  </div>
+                ) : recipes.length ? (
+                  recipes.map((recipe, index) => (
+                    <div className="recipeItem" key={index}>
+                      <Link to="recipe" state={recipe}>
+                        <Recipe
+                          name={recipe.title}
+                          image={recipe.image}
+                          readyInMinutes={recipe.readyInMinutes}
+                        />
+                      </Link>
                     </div>
-                  ) : recipes.length ? (
-                    recipes.map((recipe, index) => (
-                      <div className="recipeItem" key={index}>
-                        <Link to="recipe" state={recipe}>
-                          <Recipe
-                            name={recipe.title}
-                            image={recipe.image}
-                            readyInMinutes={recipe.readyInMinutes}
-                          />
-                        </Link>
-                      </div>
-                    ))
-                  ) : (
-                    <p id="notFound">Sorry, this recipe is not found.</p>
-                  )}
-                </div>
+                  ))
+                ) : (
+                  <p id="notFound">Sorry, this recipe is not found.</p>
+                )}
               </div>
             </div>
           }
