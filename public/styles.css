@@ -34,6 +34,12 @@ ol {
   padding-left: 16px;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
