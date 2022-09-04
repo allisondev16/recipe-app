@@ -147,6 +147,10 @@ header {
   margin-bottom: 20px;
 }
 
+.recipe-details h3 {
+  margin-bottom: 14px;
+}
+
 .recipe-details img {
   display: block;
   width: 500px;
