@@ -154,6 +154,12 @@ useEffect(() => {
 // Setting location in useEffect will make sure to scroll to top on every path change.
 ```
 
+- [`theme-color` changes the color of the mobile browser.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color)
+
+```html
+<meta name="theme-color" content="#fff" />
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
