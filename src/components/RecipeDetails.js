@@ -68,6 +68,8 @@ function RecipeDetails() {
   function prepCookTime(time) {
     if (time === false || time === -1) {
       return "--";
+    } else if (!time) {
+      return ".......";
     } else {
       return `${time} mins`;
     }
@@ -84,38 +86,38 @@ function RecipeDetails() {
       </div>
       <div className="recipe-details__img-time">
         <img src={recipe.image} alt={recipe.name}></img>
-        {!information.preparationMinutes ? (
-          <div className="recipe-details__time">tick-tock</div>
-        ) : (
-          <div className="recipe-details__time">
-            <AvTimerIcon
-              fontSize="large"
-              sx={{
-                color: "#FFB72B",
-                backgroundColor: "#F0F9F9",
-                position: "absolute",
-                right: "-2px",
-                top: "-2px",
-              }}
-            />
 
-            <span>
-              <b>Prep Time: </b>
-              {prepCookTime(information.preparationMinutes)}
-            </span>
-            <span>
-              <b>Cook Time: </b>
-              {prepCookTime(information.cookingMinutes)}
-            </span>
-            <span>
-              <b>Total Time: </b>
-              {information.readyInMinutes + " mins"}
-            </span>
-            <span>
-              <b>Servings:</b> {information.servings}
-            </span>
-          </div>
-        )}
+        <div className="recipe-details__time">
+          <AvTimerIcon
+            fontSize="large"
+            sx={{
+              color: "#FFB72B",
+              backgroundColor: "#F0F9F9",
+              position: "absolute",
+              right: "-2px",
+              top: "-2px",
+            }}
+          />
+
+          <span>
+            <b>Prep Time: </b>
+            {prepCookTime(information.preparationMinutes)}
+          </span>
+          <span>
+            <b>Cook Time: </b>
+            {prepCookTime(information.cookingMinutes)}
+          </span>
+          <span>
+            <b>Total Time: </b>
+            {information.readyInMinutes
+              ? information.readyInMinutes + " mins"
+              : "......."}
+          </span>
+          <span>
+            <b>Servings:</b>{" "}
+            {information.servings ? information.servings : "......."}
+          </span>
+        </div>
       </div>
 
       <div className="recipe-details__ingredients">
