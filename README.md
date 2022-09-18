@@ -160,6 +160,19 @@ useEffect(() => {
 <meta name="theme-color" content="#fff" />
 ```
 
+- [RegExp](https://regex101.com/)
+  `/` An unescaped delimiter must be escaped; in most languages with a backslash `\`
+
+```JS
+    // Remove the list tags
+    const instruction = instruction0.replace(/(<ol>|<li>|<\/li>|<\/ol>)/g, "");
+```
+
+References:
+https://stackoverflow.com/questions/10398931/how-to-remove-text-from-a-string
+https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+https://stackoverflow.com/questions/50158063/how-to-remove-from-string-in-javascript
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

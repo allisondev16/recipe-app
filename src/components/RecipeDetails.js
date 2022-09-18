@@ -35,7 +35,10 @@ function RecipeDetails() {
   }, []);
 
   useEffect(() => {
-    const instruction = information.instructions;
+    const instruction0 = information.instructions;
+
+    // Remove the list tags
+    const instruction = instruction0.replace(/(<ol>|<li>|<\/li>|<\/ol>)/g, "");
 
     /*** Format the instruction into paragraphs ***/
 
